@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 3000
+    // const port = 3000
 
 const date = require(__dirname + "/date.js");
 const mongoose = require('mongoose');
@@ -155,8 +155,13 @@ app.post('/delete', (req, res) => {
 
 })
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Server has started successfully on port ${port}`)
 })
 
 
