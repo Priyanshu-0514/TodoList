@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -7,7 +8,7 @@ const date = require(__dirname + "/date.js");
 const mongoose = require('mongoose');
 const _ = require('lodash')
 
-mongoose.connect("mongodb+srv://caytus:upsidedown@cluster0.tvxfa8h.mongodb.net/todolistDB", { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
 
 app.set('view engine', 'ejs')
 
